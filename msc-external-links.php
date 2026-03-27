@@ -19,9 +19,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/**
+ * Current plugin version.
+ */
 define( 'MSCEL_PLUGIN_VERSION', '1.0.0' );
+
+/**
+ * Absolute path to the main plugin file.
+ */
 define( 'MSCEL_PLUGIN_FILE', __FILE__ );
+
+/**
+ * Absolute path to the plugin directory.
+ */
 define( 'MSCEL_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+
+/**
+ * URL to the plugin directory.
+ */
 define( 'MSCEL_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
 require_once MSCEL_PLUGIN_DIR . 'includes/class-msc-external-links-module.php';
@@ -49,12 +64,13 @@ register_deactivation_hook(
 add_action(
 	'plugins_loaded',
 	static function () {
+		// Load translation files from the plugin languages directory.
 		load_plugin_textdomain(
 			'msc-external-links',
 			false,
 			dirname( plugin_basename( __FILE__ ) ) . '/languages'
 		);
 
-		MSC_External_Links\\Plugin::instance();
+		MSC_External_Links\Plugin::instance();
 	}
 );

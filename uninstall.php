@@ -1,6 +1,8 @@
 <?php
 /**
  * Uninstall MSC External Links.
+ *
+ * @return void
  */
 
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {

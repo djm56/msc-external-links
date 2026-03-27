@@ -10,7 +10,13 @@
     "wp-coding-standards/wpcs": "^3.1"
   },
   "scripts": {
-    "lint": "phpcs",
-    "lint-fix": "phpcbf"
+    "lint": "phpcs .",
+    "lint-fix": "phpcbf .",
+    "i18n:pot": "wp i18n make-pot . languages/msc-external-links.pot --domain=msc-external-links --exclude=node_modules,vendor,.git,tests"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
   }
 }
